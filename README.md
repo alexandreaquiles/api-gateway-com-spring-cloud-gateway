@@ -2,6 +2,8 @@
 
 API Gateway do curso [Microservices com Spring Cloud](https://www.caelum.com.br/curso-microservices-spring-cloud) da Caelum reimplementado com Spring Cloud Gateway ao invés de Spring Cloud Netflix Zuul.
 
+![API Gateway como Edge Service](https://raw.githubusercontent.com/caelum/apostila-microservices-com-spring-cloud/master/imagens/06-api-gateway/api-gateway-como-edge-services.png)
+
 
 ## Versões utilizadas
 
@@ -19,7 +21,41 @@ API Gateway do curso [Microservices com Spring Cloud](https://www.caelum.com.br/
 - Página Principal: https://github.com/spring-cloud/spring-cloud-gateway
 - Docs application.properties: https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.2.RELEASE/reference/html/appendix.html
 
-## URLs
+## Execução dos Downstream Services
+
+Execução dos BDs (via Docker Compose):
+
+```sh
+curl https://gitlab.com/snippets/1859850/raw > docker-compose.yml
+docker-compose up -d
+```
+
+Execução do Monólito Modular:
+
+```sh
+git clone https://gitlab.com/aovs/projetos-cursos/fj33-eats-monolito-modular.git
+git checkout cap5-integracao-pagamento-monolito-com-feign
+mvn clean package
+java -jar eats-application/target/eats-application-0.0.1-SNAPSHOT.jar 
+```
+
+Execução do Serviço de Pagamentos:
+
+```sh
+git clone https://gitlab.com/aovs/projetos-cursos/fj33-eats-pagamento-service.git
+git checkout cap5-integracao-pagamento-monolito-com-feign
+mvn clean spring-boot:run 
+```
+
+Execução do Serviço de Distância:
+
+```sh
+git clone https://gitlab.com/aovs/projetos-cursos/fj33-eats-distancia-service.git
+git checkout cap5-integracao-monolito-distancia-com-rest-template
+mvn clean spring-boot:run 
+```
+
+## URLs para testar
 
 - http://localhost:9998/pagamentos/1
 - http://localhost:9998/restaurantes/1
