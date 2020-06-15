@@ -1,0 +1,21 @@
+server:
+  port: 9998
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: pagamentos
+        uri: http://localhost:8081
+        predicates:
+        - Path=/pagamentos/**
+      - id: distancia
+        uri: http://localhost:8082
+        predicates:
+        - Path=/distancia/**
+        filters:
+        - StripPrefix=1
+      - id: monolito
+        uri: http://localhost:8080
+        predicates:
+        - Path=/**
