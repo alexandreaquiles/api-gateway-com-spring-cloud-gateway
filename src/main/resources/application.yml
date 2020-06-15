@@ -1,6 +1,13 @@
 server:
   port: 9998
 
+distancia:
+  service:
+    url: http://localhost:8082
+
+monolito:
+  url: http://localhost:8080
+
 spring:
   cloud:
     gateway:
@@ -11,6 +18,10 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
       routes:
+      - id: restaurante-com-distancia
+        uri: forward:///restaurantes-com-distancia
+        predicates:
+          - Path=/restaurantes-com-distancia/**
       - id: pagamentos
         uri: http://localhost:8081
         predicates:
