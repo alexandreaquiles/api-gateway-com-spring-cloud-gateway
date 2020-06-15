@@ -31,6 +31,6 @@ API Gateway do curso [Microservices com Spring Cloud](https://www.caelum.com.br/
 - Uses Path: https://www.javainuse.com/spring/cloud-gateway
 - http://www.appsdeveloperblog.com/spring-cloud-api-gateway-tutorial/
 - https://github.com/fwfurtado/car-sharing/blob/master/api-gateway/src/main/resources/application.yml
-- https://www.devglan.com/spring-cloud/spring-cloud-gateway-examplehttps://www.devglan.com/spring-cloud/spring-cloud-gateway-example
+- https://www.devglan.com/spring-cloud/spring-cloud-gateway-example
 
  
