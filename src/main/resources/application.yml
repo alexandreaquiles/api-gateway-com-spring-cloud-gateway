@@ -22,6 +22,8 @@ spring:
         uri: http://localhost:8081
         predicates:
         - Path=/pagamentos/**
+        filters:
+        - RewriteLocationResponseHeader
       - id: distancia
         uri: http://localhost:8082
         predicates:
