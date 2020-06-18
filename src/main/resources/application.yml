@@ -23,7 +23,10 @@ spring:
       - id: pagamentos
         uri: http://localhost:8081
         predicates:
-        - Path=/pagamentos/**
+        - name: Path
+          args:
+            patterns:
+            - /pagamentos/**
       - id: distancia
         uri: http://localhost:8082
         predicates:
